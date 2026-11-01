@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exibir IP com Imagem Girando</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+      overflow: hidden;
+    }
+
+    /* Container pai com posicionamento relativo para isolar as camadas */
+    .container-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Imagem posicionada atrás do card e girando continuamente */
+    .imagem-giratoria {
+      position: absolute;
+      width: 1600px;
+      height: 1000px;
+      z-index: 1; /* Fica atrás do card */
+      animation: girar 2s linear infinite;
+    }
+
+    /* Animação CSS para rotação de 0 a 360 graus */
+    @keyframes girar {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Card com z-index superior para cobrir a imagem */
+    .card-ip {
+      position: relative;
+      z-index: 2; /* Fica acima da imagem */
+      background-color: #ffffff;
+      padding: 24px 32px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .ip-texto {
+      font-size: 1.2rem;
+      color: #333333;
+    }
+
+    .ip-valor {
+      font-weight: bold;
+      color: rgb(0, 56, 184);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container-wrapper">
+
+    <img src="image.png" alt="Imagem Girando" class="imagem-giratoria">
+
+    <div class="card-ip">
+      <p class="ip-texto"><span id="user-ip" class="ip-valor">Carregando...</span></p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const ipElement = document.getElementById('user-ip');
+
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          ipElement.textContent = data.ip;
+        })
+        .catch(error => {
+          console.error('Erro ao obter o IP:', error);
+          ipElement.textContent = 'Erro ao carregar';
+        });
+    });
+  </script>
+
+</body>
+</html>

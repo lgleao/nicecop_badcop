@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exibir IP do Usuário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+    }
+
+    .card-ip {
+      background-color: #ffffff;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .ip-texto {
+      font-size: 1.2rem;
+      color: #333333;
+    }
+
+    .ip-valor {
+      font-weight: bold;
+      color: rgb(0, 56, 184);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-ip">
+    <p class="ip-texto">Seu IP é: <span id="user-ip" class="ip-valor">Carregando...</span></p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const ipElement = document.getElementById('user-ip');
+
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          ipElement.textContent = data.ip;
+        })
+        .catch(error => {
+          console.error('Erro ao obter o IP:', error);
+          ipElement.textContent = 'Erro ao carregar';
+        });
+    });
+  </script>
+
+</body>
+</html>
