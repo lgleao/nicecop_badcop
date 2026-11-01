@@ -16,7 +16,6 @@
       overflow: hidden;
     }
 
-    /* Container pai com posicionamento relativo para isolar as camadas */
     .container-wrapper {
       position: relative;
       display: flex;
@@ -24,16 +23,14 @@
       align-items: center;
     }
 
-    /* Imagem posicionada atrás do card e girando continuamente */
     .imagem-giratoria {
       position: absolute;
       width: 1600px;
       height: 1000px;
-      z-index: 1; /* Fica atrás do card */
+      z-index: 1;
       animation: girar 2s linear infinite;
     }
 
-    /* Animação CSS para rotação de 0 a 360 graus */
     @keyframes girar {
       from {
         transform: rotate(0deg);
@@ -43,10 +40,9 @@
       }
     }
 
-    /* Card com z-index superior para cobrir a imagem */
     .card-ip {
       position: relative;
-      z-index: 2; /* Fica acima da imagem */
+      z-index: 2;
       background-color: #ffffff;
       padding: 24px 32px;
       border-radius: 8px;
@@ -69,6 +65,7 @@
 
   <div class="container-wrapper">
 
+    <!-- Certifique-se de que o nome aqui seja exatamente igual ao do arquivo no GitHub -->
     <img src="image.png" alt="Imagem Girando" class="imagem-giratoria">
 
     <div class="card-ip">
