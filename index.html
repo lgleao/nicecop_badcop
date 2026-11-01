@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* "main()" */
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 82vh;
+            align-items: center;     /* Changed from place-items */
+            justify-content: center;
+            background-color: rgb(251, 251, 251);
+            color: rgb(0, 0, 0);
+        }
+
+        /* Headers */
+        h1 {
+            font: bolder 140px Arial;         /* Adjust this size to your preference */
+            margin-bottom: 2px;     /* Controls the gap between header and paragraph */
+        }
+
+        /* paragrafo */
+        p {
+            font: italic 80px Arial;
+            margin: 2px;
+        }
+
+        div {
+            background-color: rgb(48, 45, 45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.949);
+            font: bold 70px Arial; 
+            margin-bottom: 10px;
+        }
+        button {
+            margin: 15px;
+            background-color: rgb(50, 51, 48);
+            color: rgb(0, 56, 184);
+            font: bolder 50px Arial;
+        }
+        .barra-topo {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(0, 56, 184);
+            }
+
+            .barra-rodape {
+            margin-top: 70px;
+            width: 100%;
+            height: 50px;
+            background-color: rgb(0, 56, 184);
+            }
+
+    </style>
+</head>
+<body>
+    <div class="barra-topo"></div>
+    <h1>Olá, amigo(a)!</h1>
+    <p>Quer ver algo interessante?</p>
+    <div>Vai se impressionar...</div>
+    <button id="next_page"> Clique pra aqui pra entender</button>
+    <div class="barra-rodape"></div>
+</body>
+
+<script src="site1.js"></script>
+</html>
